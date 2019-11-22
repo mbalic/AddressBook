@@ -3,10 +3,12 @@ using AddressBook.API.DTOs;
 using AddressBook.API.Extensions;
 using AddressBook.API.Helpers;
 using AddressBook.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AddressBook.API.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class HomeController : ControllerBase
