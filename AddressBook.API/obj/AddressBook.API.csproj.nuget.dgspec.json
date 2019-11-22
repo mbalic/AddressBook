@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\_private\\AddressBook\\api\\AddressBook.API\\AddressBook.API.csproj": {}
+    "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj": {}
   },
   "projects": {
-    "C:\\dev\\_private\\AddressBook\\api\\AddressBook.API\\AddressBook.API.csproj": {
+    "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\_private\\AddressBook\\api\\AddressBook.API\\AddressBook.API.csproj",
+        "projectUniqueName": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
         "projectName": "AddressBook.API",
-        "projectPath": "C:\\dev\\_private\\AddressBook\\api\\AddressBook.API\\AddressBook.API.csproj",
+        "projectPath": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
         "packagesPath": "C:\\Users\\Mario\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\_private\\AddressBook\\api\\AddressBook.API\\obj\\",
+        "outputPath": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,12 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
