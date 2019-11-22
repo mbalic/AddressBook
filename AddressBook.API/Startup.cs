@@ -48,12 +48,13 @@ namespace AddressBook.API
             services.AddCors();
             services.AddAutoMapper(typeof(ServiceBase).Assembly);
 
+            services.AddTransient<Seed>();
             services.AddTransient<IContactService, ContactService>();
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Seed seeder)
         {
             if (env.IsDevelopment())
             {
@@ -83,6 +84,7 @@ namespace AddressBook.API
 
             //app.UseHttpsRedirection();
 
+            //seeder.SeedContacts();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseRouting();
             app.UseAuthorization();

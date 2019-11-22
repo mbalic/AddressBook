@@ -49,3 +49,4 @@ C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Swashbuc
 C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Data\ContactSeedData.json
