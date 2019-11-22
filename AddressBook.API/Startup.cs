@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AddressBook.API.Data;
+using AddressBook.API.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,12 @@ namespace AddressBook.API
             services.AddControllers();
 
             services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddCors();
+            services.AddAutoMapper(typeof(ServiceBase).Assembly);
+
+            services.AddTransient<IContactService, ContactService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
