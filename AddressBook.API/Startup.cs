@@ -31,15 +31,7 @@ namespace AddressBook.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddControllers();
 
-            var connectionString = Configuration["PostgreSql:ConnectionString"];
-            var dbPassword = Configuration["PostgreSql:DbPassword"];
-
-            var builder = new NpgsqlConnectionStringBuilder(connectionString)
-            {
-                Password = dbPassword
-            };
-
-            services.AddDbContext<DataContext>(options => options.UseNpgsql(builder.ConnectionString));
+            services.AddDbContext<DataContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
