@@ -84,7 +84,7 @@ namespace AddressBook.API
 
             //app.UseHttpsRedirection();
 
-            //seeder.SeedContacts();
+            seeder.SeedContacts();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseRouting();
             app.UseAuthorization();
