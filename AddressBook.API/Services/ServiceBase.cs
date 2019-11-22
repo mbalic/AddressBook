@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using AddressBook.API.Data;
 using AddressBook.API.Helpers;
+using AddressBook.API.Models;
 using AutoMapper;
 
 namespace AddressBook.API.Services
@@ -90,6 +91,20 @@ namespace AddressBook.API.Services
             {
                 return this.Failure(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Creates new entity with corresponding session and date created set.
+        /// </summary>
+        /// <typeparam name="TResult">Entity of type <see cref="EntityBase"/></typeparam>
+        /// <returns>Created entity</returns>
+        protected TResult CreateNewEntity<TResult>()
+            where TResult : EntityBase, new()
+        {
+            var result = new TResult();
+            result.DateCreated = DateTime.UtcNow;
+
+            return result;
         }
     }
 }

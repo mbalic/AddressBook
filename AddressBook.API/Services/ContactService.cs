@@ -39,20 +39,16 @@ namespace AddressBook.API.Services
 
         public async Task<ServiceResult> InsertContactAsync(ContactEditData contactData)
         {
-            var contact = new Contact
-            {
-                Name = contactData.Name,
-                DateOfBirth = contactData.DateOfBirth,
-                Address = contactData.Address
-            };
+            var contact = this.CreateNewEntity<Contact>();
+            contact.Name = contactData.Name;
+            contact.DateOfBirth = contactData.DateOfBirth;
+            contact.Address = contactData.Address;
 
             foreach (var item in contactData.PhoneNumbers)
             {
-                var phoneNumber = new PhoneNumber
-                {
-                    Number = item.Number,
-                    CountryCode = item.CountryCode
-                };
+                var phoneNumber = this.CreateNewEntity<PhoneNumber>();
+                phoneNumber.Number = item.Number;
+                phoneNumber.CountryCode = item.CountryCode;
 
                 contact.PhoneNumbers.Add(phoneNumber);
             }

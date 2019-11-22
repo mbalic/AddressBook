@@ -3,9 +3,8 @@ using System.Collections.Generic;
 
 namespace AddressBook.API.Models
 {
-    public class PhoneNumber
+    public class PhoneNumber : EntityBase
     {
-        public int Id { get; set; }
         public int ContactId { get; set; }
         public string Number { get; set; }
         public string CountryCode { get; set; }
