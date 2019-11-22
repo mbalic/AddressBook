@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj": {}
+    "C:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj": {}
   },
   "projects": {
-    "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj": {
+    "C:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
+        "projectUniqueName": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
         "projectName": "AddressBook.API",
-        "projectPath": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
+        "projectPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
         "packagesPath": "C:\\Users\\Mario\\.nuget\\packages\\",
-        "outputPath": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\obj\\",
+        "outputPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
