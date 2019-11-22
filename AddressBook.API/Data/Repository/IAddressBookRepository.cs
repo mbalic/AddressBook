@@ -9,7 +9,7 @@ namespace AddressBook.API.Data.Repository
         void Add<T>(T entity) where T : class;
         void Delete<T>(T entity) where T : class;
         Task<bool> SaveAll();
-        Task<PagedList<Contact>> GetContacts(ContactParams userParams);
+        Task<PagedList<Contact>> GetContacts(ContactParams contactParams);
         Task<Contact> GetContact(int id);
     }
 }

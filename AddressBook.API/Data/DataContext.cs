@@ -7,6 +7,9 @@ namespace AddressBook.API.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<PhoneNumber> PhoneNumbers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
