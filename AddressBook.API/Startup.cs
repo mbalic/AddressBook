@@ -44,7 +44,14 @@ namespace AddressBook.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder
+                .WithOrigins("http://localhost:4300")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+            });
 
             services.AddTransient<Seed>();
             services.AddTransient<IContactService, ContactService>();
@@ -83,7 +90,7 @@ namespace AddressBook.API
             //app.UseHttpsRedirection();
 
             //seeder.SeedContacts();
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors("CorsPolicy");
             app.UseRouting();
             app.UseAuthorization();
             // Lookup for index.html

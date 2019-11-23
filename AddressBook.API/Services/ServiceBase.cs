@@ -73,20 +73,14 @@ namespace AddressBook.API.Services
 
         public async Task<ServiceResult> SaveAll()
         {
-            try
+            // returns changes saved to db
+            if (await this.Context.SaveChangesAsync() > 0)
             {
-                // returns changes saved to db
-                if (await this.Context.SaveChangesAsync() > 0)
-                {
-                    return this.Success("Success");
-                }
+                return this.Success("Success");
+            }
 
-                return this.Failure("Error on saving in db");
-            }
-            catch (Exception ex)
-            {
-                return this.Failure(ex.Message);
-            }
+            return this.Failure("Error on saving in db");
+
         }
 
         /// <summary>

@@ -3,8 +3,10 @@ using AddressBook.API.DTOs;
 using AddressBook.API.Extensions;
 using AddressBook.API.Helpers;
 using AddressBook.API.Services;
+using AddressBook.API.SignalR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 
 namespace AddressBook.API.Controllers
 {
@@ -14,10 +16,12 @@ namespace AddressBook.API.Controllers
     public class ContactsController : ControllerBase
     {
         private readonly IContactService _contactService;
+        private readonly IHubContext<BroadcastHub, IHubClient> _hubContext;
 
-        public ContactsController(IContactService contactService)
+        public ContactsController(IContactService contactService, IHubContext<BroadcastHub, IHubClient> hubContext)
         {
             this._contactService = contactService;
+            this._hubContext = hubContext;
         }
 
         [HttpGet("{id}", Name = "GetContact")]
@@ -52,6 +56,8 @@ namespace AddressBook.API.Controllers
                 return BadRequest(response.Message);
             }
 
+            await _hubContext.Clients.All.BroadcastMessage();
+
             return Ok();
         }
 
@@ -65,6 +71,8 @@ namespace AddressBook.API.Controllers
                 return BadRequest(response.Message);
             }
 
+            await _hubContext.Clients.All.BroadcastMessage();
+
             return Ok();
         }
 
@@ -77,6 +85,8 @@ namespace AddressBook.API.Controllers
             {
                 return BadRequest(response.Message);
             }
+
+            await _hubContext.Clients.All.BroadcastMessage();
 
             return Ok();
         }
