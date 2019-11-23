@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { ContactListResolver } from './_resolvers/contact-list.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -10,8 +11,9 @@ export const appRoutes: Routes = [
         children: [
             {
                 path: 'contacts',
-                component: ContactListComponent
-            },
+                component: ContactListComponent,
+                resolve: { contacts: ContactListResolver }
+            }
             // {
             //     path: 'contact/:id',
             //     component: ContactDetailsComponent

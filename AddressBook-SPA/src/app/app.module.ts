@@ -1,6 +1,7 @@
 // node_modules components
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { PaginationModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 
@@ -14,6 +15,7 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 import { ContactService } from './_services/contact.service';
 import { RouterModule } from '@angular/router';
+import { ContactListResolver } from './_resolvers/contact-list.resolver';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     PaginationModule.forRoot(),
     RouterModule.forRoot(appRoutes),
@@ -34,7 +37,8 @@ import { RouterModule } from '@angular/router';
   providers: [
     ErrorInterceptorProvider,
     AlertifyService,
-    ContactService
+    ContactService,
+    ContactListResolver
   ],
   bootstrap: [
     AppComponent

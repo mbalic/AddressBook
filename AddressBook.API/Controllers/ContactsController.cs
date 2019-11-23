@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using AddressBook.API.DTOs;
 using AddressBook.API.Extensions;
