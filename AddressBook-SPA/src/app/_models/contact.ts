@@ -6,5 +6,5 @@ export interface Contact {
     name: string;
     dateOfBirth: Date;
     address: string;
-    phoneNumbers: PhoneNumber[]
+    phoneNumbers: PhoneNumber[];
 }
