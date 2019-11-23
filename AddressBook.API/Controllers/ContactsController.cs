@@ -61,8 +61,8 @@ namespace AddressBook.API.Controllers
             return Ok();
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateContact(int id, ContactEditData contactEditData)
+        [HttpPut]
+        public async Task<IActionResult> UpdateContact(ContactEditData contactEditData)
         {
             var response = await this._contactService.UpdateContactAsync(contactEditData);
 

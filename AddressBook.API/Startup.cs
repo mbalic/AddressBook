@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AddressBook.API.Data;
 using AddressBook.API.Extensions;
 using AddressBook.API.Services;
+using AddressBook.API.SignalR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -47,11 +48,13 @@ namespace AddressBook.API
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder => builder
-                .WithOrigins("http://localhost:4300")
+                .WithOrigins("http://localhost:4200")
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowCredentials());
             });
+
+            services.AddSignalR();
 
             services.AddTransient<Seed>();
             services.AddTransient<IContactService, ContactService>();
@@ -91,6 +94,7 @@ namespace AddressBook.API
 
             //seeder.SeedContacts();
             app.UseCors("CorsPolicy");
+
             app.UseRouting();
             app.UseAuthorization();
             // Lookup for index.html
@@ -100,6 +104,7 @@ namespace AddressBook.API
             {
                 endpoints.MapControllers();
                 endpoints.MapFallbackToController("Index", "Fallback");
+                endpoints.MapHub<BroadcastHub>("/notify");
             });
         }
     }
