@@ -52,7 +52,8 @@ namespace AddressBook.API.Services
                 {
                     Id = c.Id,
                     Name = c.Name
-                });
+                })
+                .OrderBy(c => c.Name);
 
             return await PagedList<ContactListData>.CreateAsync(contactsListData, model.PageNumber, model.PageSize);
         }

@@ -10,8 +10,6 @@
           <form #editForm="ngForm" (ngSubmit)="updateContact()" id="editForm" class="mt-4">
             <h5 class="mt-4">Name</h5>
             <input type="text" class="form-control" name="name" rows="6" [(ngModel)]="contact.name">
-            <h5 class="mt-4">Description</h5>
-            <input type="text" class="form-control" name="description" rows="6" [(ngModel)]="contact.description">
             <h5 class="mt-4">Date of birth</h5>
             <input type="text" class="form-control" name="dateOfBirth" rows="6" [(ngModel)]="contact.dateOfBirth">
             <h5 class="mt-4">Address</h5>
