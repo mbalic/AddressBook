@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { ContactListResolver } from './_resolvers/contact-list.resolver';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 import { ContactDetailsResolver } from './_resolvers/contact-details.resolver';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ContactDetailsResolver } from './_resolvers/contact-details.resolver';
     HomeComponent,
     NavMenuComponent,
     ContactListComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
