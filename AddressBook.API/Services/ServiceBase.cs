@@ -3,19 +3,15 @@ using System.Threading.Tasks;
 using AddressBook.API.Data;
 using AddressBook.API.Helpers;
 using AddressBook.API.Models;
-using AutoMapper;
 
 namespace AddressBook.API.Services
 {
     public abstract class ServiceBase
     {
         protected readonly DataContext Context;
-        protected readonly IMapper _mapper;
-
-        protected ServiceBase(DataContext context, IMapper mapper)
+        protected ServiceBase(DataContext context)
         {
             Context = context;
-            _mapper = mapper;
         }
 
         public ServiceResult Success()

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using AddressBook.API.Data;
 using AddressBook.API.Extensions;
 using AddressBook.API.Services;
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -46,7 +45,6 @@ namespace AddressBook.API
             });
 
             services.AddCors();
-            services.AddAutoMapper(typeof(Startup));
 
             services.AddTransient<Seed>();
             services.AddTransient<IContactService, ContactService>();

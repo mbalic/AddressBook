@@ -5,8 +5,6 @@ using AddressBook.API.Data;
 using AddressBook.API.DTOs;
 using AddressBook.API.Helpers;
 using AddressBook.API.Models;
-using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace AddressBook.API.Services
@@ -14,7 +12,7 @@ namespace AddressBook.API.Services
     public class ContactService : ServiceBase, IContactService
     {
 
-        public ContactService(DataContext context, IMapper mapper) : base(context, mapper)
+        public ContactService(DataContext context) : base(context)
         {
         }
 
@@ -37,7 +35,6 @@ namespace AddressBook.API.Services
                             Description = p.Description
                         }).ToList()
                 })
-                //.ProjectTo<ContactDetailsData>(this._mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
 
             if (contact == null)
@@ -56,7 +53,6 @@ namespace AddressBook.API.Services
                     Id = c.Id,
                     Name = c.Name
                 });
-            //.ProjectTo<ContactListData>(this._mapper.ConfigurationProvider);
 
             return await PagedList<ContactListData>.CreateAsync(contactsListData, model.PageNumber, model.PageSize);
         }
@@ -68,8 +64,6 @@ namespace AddressBook.API.Services
             contact.DateOfBirth = model.DateOfBirth;
             contact.Address = model.Address;
 
-            //this._mapper.Map(model, contact);
-
             foreach (var phoneNumber in model.PhoneNumbers)
             {
                 var newPhoneNumber = new PhoneNumber
@@ -78,8 +72,6 @@ namespace AddressBook.API.Services
                     CountryCode = phoneNumber.CountryCode,
                     Description = phoneNumber.Description
                 };
-
-                //this._mapper.Map(model.PhoneNumbers, phoneNumber);
 
                 contact.PhoneNumbers.Add(newPhoneNumber);
             }
@@ -124,12 +116,9 @@ namespace AddressBook.API.Services
                     Description = phoneNumber.Description
                 };
 
-                //this._mapper.Map(model.PhoneNumbers, phoneNumber);
-
                 contact.PhoneNumbers.Add(newPhoneNumber);
             }
 
-            //this._mapper.Map(model, entity);
             this.Context.Update(contact);
 
             var response = await this.SaveAll();
