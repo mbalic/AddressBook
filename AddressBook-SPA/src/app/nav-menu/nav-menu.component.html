@@ -1,0 +1,29 @@
+<header>
+  <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3'>
+    <div class="container">
+      <a class="navbar-brand" [routerLink]='["/"]'>AddressBook App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+        aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link text-dark" [routerLink]='["/"]'>Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/contacts"]'>Contacts</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<footer>
+  <nav class="navbar navbar-light bg-white mt-5 fixed-bottom">
+    <div class="navbar-expand m-auto navbar-text">
+      Developed for testing purposes. Source code available on <a href="https://github.com/mbalic/AddressBook"
+        target="_blank">github</a>
+    </div>
+  </nav>
+</footer>
