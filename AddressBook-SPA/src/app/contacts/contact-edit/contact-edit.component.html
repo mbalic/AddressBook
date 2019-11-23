@@ -1,35 +1,30 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-sm-8">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <strong>Information:</strong> You have unsaved changes.
+      </div>
       <div class="card">
         <div class="card-body">
-          <div>
-            <strong>Name:</strong>
-            <p>{{contact.name}}</p>
-          </div>
-          <div>
-            <strong>Description:</strong>
-            <p>{{contact.description}}</p>
-          </div>
-          <div>
-            <strong>Date of birth:</strong>
-            <p>{{contact.dateOfBirth}}</p>
-          </div>
-          <div>
-            <strong>Address:</strong>
-            <p>{{contact.address}}</p>
-          </div>
+          <h3>Edit Profile</h3>
+          <form #editForm="ngForm" (ngSubmit)="updateContact()" id="editForm" class="mt-4">
+            <h5 class="mt-4">Name</h5>
+            <input type="text" class="form-control" name="name" rows="6" [(ngModel)]="contact.name">
+            <h5 class="mt-4">Description</h5>
+            <input type="text" class="form-control" name="description" rows="6" [(ngModel)]="contact.description">
+            <h5 class="mt-4">Date of birth</h5>
+            <input type="text" class="form-control" name="dateOfBirth" rows="6" [(ngModel)]="contact.dateOfBirth">
+            <h5 class="mt-4">Address</h5>
+            <input type="text" class="form-control" name="address" rows="6" [(ngModel)]="contact.address">
+            <div class="form-inline"></div>
+          </form>
         </div>
-        <div class="card-footer">
+        <div class="card-footer mt-4">
           <div class="btn-group d-flex">
-            <button class="btn btn-primary w-200">Save</button>
+            <button [disabled]="!editForm.dirty" class="btn btn-success btn-block" form="editForm">Save changes</button>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-4"></div>
-    <div *ngIf="editForm.dirty" class="alert alert-info">
-      <strong>Information:</strong> You have unsaved changes.
     </div>
   </div>
 </div>

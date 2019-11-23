@@ -4,6 +4,9 @@ import { ContactListComponent } from './contacts/contact-list/contact-list.compo
 import { ContactListResolver } from './_resolvers/contact-list.resolver';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 import { ContactDetailsResolver } from './_resolvers/contact-details.resolver';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { ContactEditResolver } from './_resolvers/contact-edit.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
@@ -21,12 +24,12 @@ export const appRoutes: Routes = [
                 component: ContactDetailsComponent,
                 resolve: { contact: ContactDetailsResolver },
             },
-            // {
-            //     path: 'contact/edit',
-            //     component: MemberEditComponent,
-            //     resolve: { user: MemberEditResolver },
-            //     canDeactivate: [PreventUnsavedChanges]
-            // }
+            {
+                path: 'contacts/edit/:id',
+                component: ContactEditComponent,
+                resolve: { contact: ContactEditResolver },
+                canDeactivate: [PreventUnsavedChanges]
+            },
         ]
     },
 

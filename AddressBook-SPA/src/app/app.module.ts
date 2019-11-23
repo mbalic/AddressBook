@@ -19,6 +19,8 @@ import { ContactListResolver } from './_resolvers/contact-list.resolver';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 import { ContactDetailsResolver } from './_resolvers/contact-details.resolver';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
+import { ContactEditResolver } from './_resolvers/contact-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
     AlertifyService,
     ContactService,
     ContactListResolver,
-    ContactDetailsResolver
+    ContactDetailsResolver,
+    ContactEditResolver,
+    PreventUnsavedChanges
   ],
   bootstrap: [
     AppComponent
