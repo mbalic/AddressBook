@@ -16,6 +16,8 @@ import { AlertifyService } from './_services/alertify.service';
 import { ContactService } from './_services/contact.service';
 import { RouterModule } from '@angular/router';
 import { ContactListResolver } from './_resolvers/contact-list.resolver';
+import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
+import { ContactDetailsResolver } from './_resolvers/contact-details.resolver';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { ContactListResolver } from './_resolvers/contact-list.resolver';
     AppComponent,
     HomeComponent,
     NavMenuComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { ContactListResolver } from './_resolvers/contact-list.resolver';
     ErrorInterceptorProvider,
     AlertifyService,
     ContactService,
-    ContactListResolver
+    ContactListResolver,
+    ContactDetailsResolver
   ],
   bootstrap: [
     AppComponent
