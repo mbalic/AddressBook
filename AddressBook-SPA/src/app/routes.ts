@@ -9,14 +9,17 @@ export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     {
         path: '',
+        runGuardsAndResolvers: 'always',
         children: [
             {
                 path: 'contacts',
                 component: ContactListComponent,
+                resolve: { contacts: ContactListResolver },
             },
             {
                 path: 'contacts/:id',
                 component: ContactDetailsComponent,
+                resolve: { contact: ContactDetailsResolver },
             },
             // {
             //     path: 'contact/edit',

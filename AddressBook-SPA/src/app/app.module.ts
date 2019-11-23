@@ -34,8 +34,6 @@ import { ContactDetailsResolver } from './_resolvers/contact-details.resolver';
     FormsModule,
     PaginationModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-
-
   ],
   providers: [
     ErrorInterceptorProvider,
