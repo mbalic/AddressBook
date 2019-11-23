@@ -6,12 +6,12 @@ namespace AddressBook.API.Services
 {
     public interface IContactService
     {
-        Task<PagedList<ContactListData>> GetContactsListAsync(ContactParams contactParams);
+        Task<PagedList<ContactListData>> GetContactsListAsync(ContactParams model);
 
         Task<ServiceResult<ContactDetailsData>> GetContactDetailsAsync(int id);
 
-        Task<ServiceResult> InsertContactAsync(ContactEditData contactData);
-        Task<ServiceResult> UpdateContactAsync(ContactEditData contactData);
+        Task<ServiceResult> InsertContactAsync(ContactEditData model);
+        Task<ServiceResult> UpdateContactAsync(ContactEditData model);
         Task<ServiceResult> DeleteContactAsync(int id);
     }
 }

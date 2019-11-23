@@ -48,26 +48,19 @@ namespace AddressBook.API.Migrations
 
             modelBuilder.Entity("AddressBook.API.Models.PhoneNumber", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
                     b.Property<int>("ContactId")
                         .HasColumnType("integer");
-
-                    b.Property<string>("CountryCode")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Number")
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("text");
 
-                    b.HasIndex("ContactId");
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("ContactId", "Number", "CountryCode");
 
                     b.ToTable("PhoneNumbers");
                 });

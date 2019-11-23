@@ -13,7 +13,8 @@ namespace AddressBook.API.Services
 {
     public class ContactService : ServiceBase, IContactService
     {
-        protected ContactService(DataContext context, IMapper mapper) : base(context, mapper)
+
+        public ContactService(DataContext context, IMapper mapper) : base(context, mapper)
         {
         }
 
@@ -21,36 +22,66 @@ namespace AddressBook.API.Services
         {
             var contact = await this.Context.Contacts
                 .Where(c => c.Id == id)
-                .ProjectTo<ContactDetailsData>(this._mapper.ConfigurationProvider)
+                .Select(c => new ContactDetailsData
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    DateOfBirth = c.DateOfBirth,
+                    DateCreated = c.DateCreated,
+                    Address = c.Address,
+                    PhoneNumbers = c.PhoneNumbers
+                        .Select(p => new PhoneNumberInfoData
+                        {
+                            Number = p.Number,
+                            CountryCode = p.CountryCode,
+                            Description = p.Description
+                        }).ToList()
+                })
+                //.ProjectTo<ContactDetailsData>(this._mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
 
-            var contactDetailsData = this._mapper.Map<ContactDetailsData>(contact);
+            if (contact == null)
+            {
+                return this.Failure<ContactDetailsData>("Contact not found");
+            }
 
-            return this.Success(contactDetailsData);
+            return this.Success(contact);
         }
 
-        public async Task<PagedList<ContactListData>> GetContactsListAsync(ContactParams contactParams)
+        public async Task<PagedList<ContactListData>> GetContactsListAsync(ContactParams model)
         {
             var contactsListData = this.Context.Contacts
-                .ProjectTo<ContactListData>(this._mapper.ConfigurationProvider);
+                .Select(c => new ContactListData
+                {
+                    Id = c.Id,
+                    Name = c.Name
+                });
+            //.ProjectTo<ContactListData>(this._mapper.ConfigurationProvider);
 
-            return await PagedList<ContactListData>.CreateAsync(contactsListData, contactParams.PageNumber, contactParams.PageSize);
+            return await PagedList<ContactListData>.CreateAsync(contactsListData, model.PageNumber, model.PageSize);
         }
 
-        public async Task<ServiceResult> InsertContactAsync(ContactEditData contactData)
+        public async Task<ServiceResult> InsertContactAsync(ContactEditData model)
         {
             var contact = this.CreateNewEntity<Contact>();
-            contact.Name = contactData.Name;
-            contact.DateOfBirth = contactData.DateOfBirth;
-            contact.Address = contactData.Address;
+            contact.Name = model.Name;
+            contact.DateOfBirth = model.DateOfBirth;
+            contact.Address = model.Address;
 
-            foreach (var item in contactData.PhoneNumbers)
+            //this._mapper.Map(model, contact);
+
+            foreach (var phoneNumber in model.PhoneNumbers)
             {
-                var phoneNumber = this.CreateNewEntity<PhoneNumber>();
-                phoneNumber.Number = item.Number;
-                phoneNumber.CountryCode = item.CountryCode;
+                var newPhoneNumber = new PhoneNumber
+                {
+                    Number = phoneNumber.Number,
+                    CountryCode = phoneNumber.CountryCode,
+                    Description = phoneNumber.Description
+                };
 
-                contact.PhoneNumbers.Add(phoneNumber);
+                //this._mapper.Map(model.PhoneNumbers, phoneNumber);
+
+                contact.PhoneNumbers.Add(newPhoneNumber);
             }
 
             this.Context.Add(contact);
@@ -60,13 +91,46 @@ namespace AddressBook.API.Services
             return response;
         }
 
-        public async Task<ServiceResult> UpdateContactAsync(ContactEditData contactData)
+        public async Task<ServiceResult> UpdateContactAsync(ContactEditData model)
         {
-            var contactFromDb = await this.Context.Contacts
-                .FirstOrDefaultAsync(c => c.Id == contactData.Id);
+            var contact = await this.Context.Contacts
+                .Include(c => c.PhoneNumbers)
+                .FirstOrDefaultAsync(c => c.Id == model.Id);
 
-            this._mapper.Map(contactData, contactFromDb);
-            this.Context.Update(contactFromDb);
+            if (contact == null)
+            {
+                return this.Failure("Contact not found");
+            }
+
+            contact.Name = model.Name;
+            contact.DateOfBirth = model.DateOfBirth;
+            contact.Address = model.Address;
+
+            // Wipeout old numbers and insert new ones
+            if (contact.PhoneNumbers.Any())
+            {
+                foreach (var oldPhoneNumber in contact.PhoneNumbers)
+                {
+                    this.Context.Remove(oldPhoneNumber);
+                }
+            }
+
+            foreach (var phoneNumber in model.PhoneNumbers)
+            {
+                var newPhoneNumber = new PhoneNumber
+                {
+                    Number = phoneNumber.Number,
+                    CountryCode = phoneNumber.CountryCode,
+                    Description = phoneNumber.Description
+                };
+
+                //this._mapper.Map(model.PhoneNumbers, phoneNumber);
+
+                contact.PhoneNumbers.Add(newPhoneNumber);
+            }
+
+            //this._mapper.Map(model, entity);
+            this.Context.Update(contact);
 
             var response = await this.SaveAll();
 
@@ -77,6 +141,11 @@ namespace AddressBook.API.Services
         {
             var contact = await this.Context.Contacts
                 .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (contact == null)
+            {
+                return this.Failure("Contact not found");
+            }
 
             this.Context.Remove(contact);
 

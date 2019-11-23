@@ -11,11 +11,11 @@ namespace AddressBook.API.Controllers
     [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
-    public class HomeController : ControllerBase
+    public class ContactsController : ControllerBase
     {
         private readonly IContactService _contactService;
 
-        public HomeController(IContactService contactService)
+        public ContactsController(IContactService contactService)
         {
             this._contactService = contactService;
         }
@@ -40,6 +40,19 @@ namespace AddressBook.API.Controllers
             Response.AddPagination(response.CurrentPage, response.PageSize, response.TotalCount, response.TotalPages);
 
             return Ok(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertContact(ContactEditData contactEditData)
+        {
+            var response = await this._contactService.InsertContactAsync(contactEditData);
+
+            if (!response.Success)
+            {
+                return BadRequest(response.Message);
+            }
+
+            return Ok();
         }
 
         [HttpPut("{id}")]
@@ -67,6 +80,5 @@ namespace AddressBook.API.Controllers
 
             return Ok();
         }
-
     }
 }

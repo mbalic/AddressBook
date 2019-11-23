@@ -7,7 +7,7 @@ using AutoMapper;
 
 namespace AddressBook.API.Services
 {
-    public class ServiceBase
+    public abstract class ServiceBase
     {
         protected readonly DataContext Context;
         protected readonly IMapper _mapper;

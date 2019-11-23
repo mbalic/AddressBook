@@ -10,7 +10,10 @@ namespace AddressBook.API.Helpers
         {
             CreateMap<Contact, ContactListData>();
             CreateMap<Contact, ContactDetailsData>();
-            CreateMap<ContactEditData, Contact>();
+            CreateMap<Contact, ContactEditData>();
+            CreateMap<ContactEditData, Contact>()
+                .ForMember(p => p.PhoneNumbers, p => p.Ignore());
+            CreateMap<PhoneNumber, PhoneNumberInfoData>().ReverseMap();
         }
     }
 }
