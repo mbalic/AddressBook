@@ -48,3 +48,12 @@ C:\dev\_private\AddressBook\src\AddressBook.API\obj\Debug\netcoreapp3.0\AddressB
 C:\dev\_private\AddressBook\src\AddressBook.API\obj\Debug\netcoreapp3.0\AddressBook.API.csproj.CopyComplete
 C:\dev\_private\AddressBook\src\AddressBook.API\obj\Debug\netcoreapp3.0\AddressBook.API.dll
 C:\dev\_private\AddressBook\src\AddressBook.API\obj\Debug\netcoreapp3.0\AddressBook.API.pdb
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.AspNetCore.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Extensions.Hosting.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Extensions.Logging.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Formatting.Compact.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Settings.Configuration.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Sinks.Console.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Sinks.Debug.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Sinks.File.dll
