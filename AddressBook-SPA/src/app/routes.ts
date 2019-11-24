@@ -12,6 +12,10 @@ import { ContactCreateComponent } from './contacts/contact-create/contact-create
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
     {
+        path: 'contacts/create',
+        component: ContactCreateComponent
+    },
+    {
         path: '',
         runGuardsAndResolvers: 'always',
         children: [
@@ -30,12 +34,7 @@ export const appRoutes: Routes = [
                 component: ContactEditComponent,
                 resolve: { contact: ContactEditResolver },
                 canDeactivate: [PreventUnsavedChanges]
-            },
-            {
-                path: 'contacts/create',
-                component: ContactCreateComponent,
-                canDeactivate: [PreventUnsavedChanges]
-            },
+            }
         ]
     },
 

@@ -33,7 +33,7 @@ import { ContactCreateComponent } from './contacts/contact-create/contact-create
     ContactListComponent,
     ContactDetailsComponent,
     ContactEditComponent,
-    ContactCreateComponent
+    ContactCreateComponent,
   ],
   imports: [
     BrowserModule,

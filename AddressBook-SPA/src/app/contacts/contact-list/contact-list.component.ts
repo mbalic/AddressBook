@@ -3,7 +3,7 @@ import { Contact } from 'src/app/_models/contact';
 import { Pagination, PaginatedResult } from 'src/app/_models/pagination';
 import { ContactService } from 'src/app/_services/contact.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
@@ -17,7 +17,8 @@ export class ContactListComponent implements OnInit {
   constructor(
     private contactService: ContactService,
     private alertify: AlertifyService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {

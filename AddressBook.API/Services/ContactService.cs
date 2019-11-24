@@ -65,19 +65,17 @@ namespace AddressBook.API.Services
             contact.DateOfBirth = model.DateOfBirth;
             contact.Address = model.Address;
 
-            foreach (var phoneNumber in model.PhoneNumbers)
-            {
-                var newPhoneNumber = new PhoneNumber
+            var newPhoneNumbers = model.PhoneNumbers
+                .Select(p => new PhoneNumber
                 {
-                    Number = phoneNumber.Number,
-                    CountryCode = phoneNumber.CountryCode,
-                    Description = phoneNumber.Description
-                };
+                    ContactId = contact.Id,
+                    Number = p.Number,
+                    CountryCode = p.CountryCode,
+                    Description = p.Description
+                }).ToList();
 
-                contact.PhoneNumbers.Add(newPhoneNumber);
-            }
-
-            this.Context.Add(contact);
+            contact.PhoneNumbers = newPhoneNumbers;
+            await this.Context.AddAsync(contact);
 
             var response = await this.SaveAll();
 

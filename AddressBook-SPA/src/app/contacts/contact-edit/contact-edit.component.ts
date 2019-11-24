@@ -16,7 +16,6 @@ export class ContactEditComponent implements OnInit {
   // Accessing form component which is in template
   @ViewChild('editForm', { static: true }) editForm: NgForm;
   contact: Contact;
-  phoneNumber: PhoneNumber[];
   bsConfig: Partial<BsDatepickerConfig>; // Partial class makes all type props optional
 
   // Prevents closing browser window if form dirty
@@ -42,7 +41,7 @@ export class ContactEditComponent implements OnInit {
         this.contact.name = '';
         this.contact.dateOfBirth = new Date();
         this.contact.address = '';
-        this.contact.phoneNumbers = this.phoneNumber;
+        this.contact.phoneNumbers = [];
       } else {
         this.contact = data['contact'];
       }
@@ -63,4 +62,15 @@ export class ContactEditComponent implements OnInit {
       );
   }
 
+  removePhoneNumber(number: string) {
+    this.contact.phoneNumbers.splice(this.contact.phoneNumbers.findIndex(p => p.number === number), 1);
+    this.editForm.control.markAsDirty();
+
+  }
+
+  addPhoneNumber(newNumber: string) {
+    const newPhoneNumber: PhoneNumber = { number: newNumber, countryCode: '038', description: 'desc' };
+    this.contact.phoneNumbers.push(newPhoneNumber);
+    this.editForm.control.markAsDirty();
+  }
 }
