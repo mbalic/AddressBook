@@ -1,9 +1,6 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-sm-8">
-      <div *ngIf="editForm.dirty" class="alert alert-info">
-        <strong>Information:</strong> You have unsaved changes.
-      </div>
       <div class="card">
         <div class="card-body">
           <h3>Edit Profile</h3>
@@ -11,7 +8,9 @@
             <h5 class="mt-4">Name</h5>
             <input type="text" class="form-control" name="name" rows="6" [(ngModel)]="contact.name">
             <h5 class="mt-4">Date of birth</h5>
-            <input type="text" class="form-control" name="dateOfBirth" rows="6" [(ngModel)]="contact.dateOfBirth">
+            <input type="text" class="form-control" name="dateOfBirth" rows="6" [(ngModel)]="contact.dateOfBirth"
+              bsDatepicker [bsConfig]="bsConfig"
+              value="{{editForm.controls['dateOfBirth'].value | date: 'MM/dd/yyyy'}}">
             <h5 class="mt-4">Address</h5>
             <input type="text" class="form-control" name="address" rows="6" [(ngModel)]="contact.address">
             <div class="form-inline"></div>
@@ -19,9 +18,14 @@
         </div>
         <div class="card-footer mt-4">
           <div class="btn-group d-flex">
-            <button [disabled]="!editForm.dirty" class="btn btn-success btn-block" form="editForm">Save changes</button>
+            <button [disabled]="!editForm.dirty" class="btn btn-success w-100 mr-3" form="editForm">Save
+              changes</button>
+            <button class="btn btn-danger w-100" type="button" [routerLink]="['/contacts']">Cancel</button>
           </div>
         </div>
+      </div>
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <strong>Information:</strong> You have unsaved changes.
       </div>
     </div>
   </div>
