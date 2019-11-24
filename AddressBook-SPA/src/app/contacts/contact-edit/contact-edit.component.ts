@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ContactService } from 'src/app/_services/contact.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { PhoneNumber } from 'src/app/_models/phoneNumber';
 
 @Component({
   selector: 'app-contact-edit',
@@ -15,6 +16,7 @@ export class ContactEditComponent implements OnInit {
   // Accessing form component which is in template
   @ViewChild('editForm', { static: true }) editForm: NgForm;
   contact: Contact;
+  phoneNumber: PhoneNumber[];
   bsConfig: Partial<BsDatepickerConfig>; // Partial class makes all type props optional
 
   // Prevents closing browser window if form dirty
@@ -36,7 +38,14 @@ export class ContactEditComponent implements OnInit {
       containerClass: 'theme-blue'
     };
     this.route.data.subscribe(data => {
-      this.contact = data['contact'];
+      if (data == null) {
+        this.contact.name = '';
+        this.contact.dateOfBirth = new Date();
+        this.contact.address = '';
+        this.contact.phoneNumbers = this.phoneNumber;
+      } else {
+        this.contact = data['contact'];
+      }
     });
   }
 
