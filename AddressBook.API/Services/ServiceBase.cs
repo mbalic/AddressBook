@@ -83,11 +83,7 @@ namespace AddressBook.API.Services
 
         }
 
-        /// <summary>
-        /// Creates new entity with corresponding session and date created set.
-        /// </summary>
-        /// <typeparam name="TResult">Entity of type <see cref="EntityBase"/></typeparam>
-        /// <returns>Created entity</returns>
+        // Creates new entity with date created set.
         protected TResult CreateNewEntity<TResult>()
             where TResult : EntityBase, new()
         {

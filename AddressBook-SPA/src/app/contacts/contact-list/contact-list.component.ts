@@ -4,6 +4,8 @@ import { Pagination, PaginatedResult } from 'src/app/_models/pagination';
 import { ContactService } from 'src/app/_services/contact.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as signalR from '@aspnet/signalr';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-contact-list',
@@ -25,6 +27,21 @@ export class ContactListComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.contacts = data['contacts'].result;
       this.pagination = data['contacts'].pagination;
+    });
+
+    const connection = new signalR.HubConnectionBuilder()
+      .configureLogging(signalR.LogLevel.Information)
+      .withUrl('https://localhost:5001/notify')
+      .build();
+
+    connection.start().then(function () {
+      console.log('SignalR Connected!');
+    }).catch(function (err) {
+      return console.error(err.toString());
+    });
+
+    connection.on('BroadcastMessage', () => {
+      this.loadContacts();
     });
   }
 
