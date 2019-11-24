@@ -22,7 +22,7 @@ namespace AddressBook.API
             .Enrich.FromLogContext()
             .WriteTo.Console()
             //.WriteTo.File(new RenderedCompactJsonFormatter(), "log.ndjson")
-            .WriteTo.File("log.txt")
+            .WriteTo.File(@"D:\log.txt")
             .CreateLogger();
 
             try
