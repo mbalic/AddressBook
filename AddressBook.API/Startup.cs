@@ -20,6 +20,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Npgsql;
+using Serilog;
 
 namespace AddressBook.API
 {
@@ -95,6 +96,7 @@ namespace AddressBook.API
             //seeder.SeedContacts();
             app.UseCors("CorsPolicy");
 
+            app.UseSerilogRequestLogging();
             app.UseRouting();
             app.UseAuthorization();
             // Lookup for index.html

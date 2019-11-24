@@ -18,10 +18,11 @@ namespace AddressBook.API
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+            //.MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
             .Enrich.FromLogContext()
             .WriteTo.Console()
-            .WriteTo.File(new RenderedCompactJsonFormatter(), "log.ndjson")
+            //.WriteTo.File(new RenderedCompactJsonFormatter(), "log.ndjson")
+            .WriteTo.File("log.txt")
             .CreateLogger();
 
             try
