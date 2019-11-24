@@ -5,24 +5,22 @@
         <div class="card-body">
           <h3>Create contact</h3>
           <form #createForm="ngForm" (ngSubmit)="createContact()" id="createForm" class="mt-4">
-            <h5 class="mt-4">Name</h5>
+            <label class="mt-4">Name</label>
             <input type="text" class="form-control" name="name" rows="6" [(ngModel)]="contact.name">
-            <h5 class="mt-4">Date of birth</h5>
+            <label class="mt-4">Date of birth</label>
             <input type="text" class="form-control" name="dateOfBirth" rows="6" [(ngModel)]="contact.dateOfBirth"
               bsDatepicker [bsConfig]="bsConfig"
               value="{{createForm.controls['dateOfBirth'].value | date: 'MM/dd/yyyy'}}">
-            <h5 class="mt-4">Address</h5>
+            <label class="mt-4">Address</label>
             <input type="text" class="form-control" name="address" rows="6" [(ngModel)]="contact.address">
-            <h5 class="mt-4">Phone numbers</h5>
+            <label class="mt-4">Phone numbers</label>
             <div *ngFor="let phoneNumber of contact.phoneNumbers">
-              <div>
-                <label class="m-3">
-                  <i class="fa fa-phone mr-2"></i><strong>{{phoneNumber.number}}</strong>
-                </label>
-                <button class="btn btn-light" (click)="removePhoneNumber(phoneNumber); $event.preventDefault()">
-                  Remove
-                </button>
-              </div>
+              <label class="m-3">
+                <i class="fa fa-phone mr-2"></i><strong>{{phoneNumber.number}}</strong>
+              </label>
+              <button class="btn btn-light" (click)="removePhoneNumber(phoneNumber); $event.preventDefault()">
+                Remove
+              </button>
             </div>
             <div class="mt-3">
               <input type="text" style="width: 140px;display: inline;" class="form-control m-2" name="newPhoneNubmer"
