@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>&#xD;
+  <ItemGroup>&#xD;&#xD;
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.0.1"/>
@@ -11,5 +11,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4"/>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1"/>
+    <PackageReference Include="Serilog.AspNetCore" Version="3.2.0"/>
   </ItemGroup>
 </Project>

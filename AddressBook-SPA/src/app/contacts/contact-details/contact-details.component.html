@@ -1,9 +1,11 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-sm-8">
-      <div class="card">
-        <div class="card-body">
+      <div class="card" style="background-color:whitesmoke;">
+        <div class="card-header">
           <h3>Contact info</h3>
+        </div>
+        <div class="card-body">
           <div class="mt-3">
             <label class="mb-2"><strong>Name:</strong></label>
             <p>{{contact.name}}</p>
@@ -20,7 +22,7 @@
             <label class="mb-2"><strong>Phone numbers:</strong></label>
             <div *ngFor="let phoneNumber of contact.phoneNumbers">
               <label class="m-3">
-                <i class="fa fa-phone mr-2"></i><strong>{{phoneNumber.number}}</strong>
+                <i class="fa fa-phone mr-2"></i>{{phoneNumber.number}}
               </label>
 
             </div>
