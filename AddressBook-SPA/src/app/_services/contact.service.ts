@@ -41,6 +41,10 @@ export class ContactService {
     return this.http.get<Contact>(this.baseUrl + 'contacts/' + id);
   }
 
+  createContact(contact: Contact) {
+    return this.http.post(this.baseUrl + 'contacts/', contact);
+  }
+
   updateContact(contact: Contact) {
     return this.http.put(this.baseUrl + 'contacts/', contact);
   }

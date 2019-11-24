@@ -22,6 +22,7 @@ import { ContactDetailsResolver } from './_resolvers/contact-details.resolver';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import { ContactEditResolver } from './_resolvers/contact-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { ContactCreateComponent } from './contacts/contact-create/contact-create.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
     NavMenuComponent,
     ContactListComponent,
     ContactDetailsComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    ContactCreateComponent
   ],
   imports: [
     BrowserModule,

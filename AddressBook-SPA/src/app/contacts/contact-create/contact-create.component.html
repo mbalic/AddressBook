@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <h3>Create contact</h3>
-          <form #editForm="ngForm" (ngSubmit)="updateContact()" id="editForm" class="mt-4">
+          <form #editForm="ngForm" (ngSubmit)="createContact()" id="editForm" class="mt-4">
             <h5 class="mt-4">Name</h5>
             <input type="text" class="form-control" name="name" rows="6" [(ngModel)]="contact.name">
             <h5 class="mt-4">Date of birth</h5>
@@ -18,8 +18,8 @@
         </div>
         <div class="card-footer mt-4">
           <div class="btn-group d-flex">
-            <button [disabled]="!editForm.dirty" class="btn btn-success w-100 mr-3" form="editForm">Save
-              changes</button>
+            <button [disabled]="!editForm.dirty" class="btn btn-success w-100 mr-3" form="editForm">Create
+              contact</button>
             <button class="btn btn-danger w-100" type="button" [routerLink]="['/contacts']">Cancel</button>
           </div>
         </div>

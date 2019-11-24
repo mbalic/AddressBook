@@ -1,6 +1,11 @@
 <div class="text-center mt-3">
   <h2>Contacts - {{pagination.totalItems}} found</h2>
 </div>
+<div>
+  <button class="btn btn-dark" [routerLink]="['/contacts/create']">
+    New contact
+  </button>
+</div>
 
 <div class="container mt-3">
   <div class="d-flex flex-column bd-highlight mt-5">
