@@ -7,6 +7,9 @@ namespace AddressBook.API.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<PhoneNumber> PhoneNumbers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -14,6 +17,9 @@ namespace AddressBook.API.Data
             modelBuilder.Entity<Contact>()
                 .HasIndex(p => new { p.Name, p.Address })
                 .IsUnique(true);
+
+            modelBuilder.Entity<PhoneNumber>()
+            .HasKey(p => new { p.ContactId, p.Number, p.CountryCode });
         }
     }
 }

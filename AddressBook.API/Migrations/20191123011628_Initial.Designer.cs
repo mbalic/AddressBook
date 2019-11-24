@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AddressBook.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191122181218_Initial")]
+    [Migration("20191123011628_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,9 @@ namespace AddressBook.API.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("timestamp without time zone");
 
@@ -42,30 +45,26 @@ namespace AddressBook.API.Migrations
                     b.HasIndex("Name", "Address")
                         .IsUnique();
 
-                    b.ToTable("Contact");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("AddressBook.API.Models.PhoneNumber", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
                     b.Property<int>("ContactId")
                         .HasColumnType("integer");
-
-                    b.Property<string>("CountryCode")
-                        .HasColumnType("text");
 
                     b.Property<string>("Number")
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("text");
 
-                    b.HasIndex("ContactId");
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
 
-                    b.ToTable("PhoneNumber");
+                    b.HasKey("ContactId", "Number", "CountryCode");
+
+                    b.ToTable("PhoneNumbers");
                 });
 
             modelBuilder.Entity("AddressBook.API.Models.PhoneNumber", b =>

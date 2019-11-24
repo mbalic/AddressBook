@@ -1,0 +1,31 @@
+<div class="text-center mt-3">
+  <h2>Contacts - {{pagination.totalItems}} found</h2>
+</div>
+<div>
+  <button class="btn btn-dark" [routerLink]="['/contacts/create']">
+    New contact
+  </button>
+</div>
+
+<div class="container mt-3">
+  <div class="d-flex flex-column bd-highlight mt-5">
+    <div *ngFor="let contact of contacts">
+      <div class="p-2 bd-highlight mb-4" style="background-color: whitesmoke;height: 60px;">
+        <label>
+          <i class="fa fa-user mr-2"></i><strong>{{contact.name}}</strong>
+        </label>
+        <button class="btn btn-light float-right" [routerLink]="['/contacts/', contact.id]">
+          Details
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [(ngModel)]="pagination.currentPage"
+    [itemsPerPage]="pagination.itemsPerPage" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;"
+    lastText="&raquo;" (pageChanged)="pageChanged($event)">
+  </pagination>
+</div>
