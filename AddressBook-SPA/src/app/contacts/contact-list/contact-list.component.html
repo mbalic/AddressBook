@@ -2,25 +2,20 @@
   <h2>Contacts - {{pagination.totalItems}} found</h2>
 </div>
 <div>
-  <button class="btn btn-dark" [routerLink]="['/contacts/create']">
+  <button class="btn btn-primary ml-3 mt-5" [routerLink]="['/contacts/create']">
     New contact
   </button>
 </div>
 
-<div class="container mt-3">
-  <div class="d-flex flex-column bd-highlight mt-5">
-    <div *ngFor="let contact of contacts">
-      <div class="p-2 bd-highlight mb-4" style="background-color: whitesmoke;height: 60px;">
-        <label>
-          <i class="fa fa-user mr-2"></i><strong>{{contact.name}}</strong>
-        </label>
-        <button class="btn btn-light float-right" [routerLink]="['/contacts/', contact.id]">
-          Details
-        </button>
-      </div>
+<div class="container d-flex flex-column bd-highlight mt-4">
+  <div *ngFor="let contact of contacts">
+    <div class="pt-3 pl-4 bd-highlight mb-4" style="background-color:whitesmoke;height: 60px;"
+      [routerLink]="['/contacts/', contact.id]">
+      <label>
+        <i class="fa fa-user mr-2"></i><strong>{{contact.name}}</strong>
+      </label>
     </div>
   </div>
-
 </div>
 
 <div class="d-flex justify-content-center">

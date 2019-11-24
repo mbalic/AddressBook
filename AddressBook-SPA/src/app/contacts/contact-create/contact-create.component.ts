@@ -61,7 +61,7 @@ export class ContactCreateComponent implements OnInit {
   }
 
   addPhoneNumber(newNumber: string) {
-    const newPhoneNumber: PhoneNumber = { number: newNumber, countryCode: '038', description: 'desc' };
+    const newPhoneNumber: PhoneNumber = { number: newNumber, countryCode: '000', description: '' };
     this.contact.phoneNumbers.push(newPhoneNumber);
     this.createForm.control.markAsDirty();
   }

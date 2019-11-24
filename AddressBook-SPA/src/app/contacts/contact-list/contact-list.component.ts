@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
   pagination: Pagination;
+  private signalrUrl = environment.apiUrl.replace('/api/', '') + '/notify';
 
   constructor(
     private contactService: ContactService,
