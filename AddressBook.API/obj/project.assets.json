@@ -2125,22 +2125,6 @@
           "bin/placeholder/AddressBook.Contracts.dll": {}
         }
       },
-      "AddressBook.Data.EF/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.0",
-        "dependencies": {
-          "AddressBook.Models": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "3.0.1",
-          "Newtonsoft.Json": "12.0.3",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.0.1"
-        },
-        "compile": {
-          "bin/placeholder/AddressBook.Data.EF.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/AddressBook.Data.EF.dll": {}
-        }
-      },
       "AddressBook.Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -2156,8 +2140,10 @@
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "AddressBook.Contracts": "1.0.0",
-          "AddressBook.Data.EF": "1.0.0",
-          "AddressBook.Models": "1.0.0"
+          "AddressBook.Models": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "3.0.1",
+          "Newtonsoft.Json": "12.0.3",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.0.1"
         },
         "compile": {
           "bin/placeholder/AddressBook.Services.dll": {}
@@ -6713,11 +6699,6 @@
       "path": "../AddressBook.Contracts/AddressBook.Contracts.csproj",
       "msbuildProject": "../AddressBook.Contracts/AddressBook.Contracts.csproj"
     },
-    "AddressBook.Data.EF/1.0.0": {
-      "type": "project",
-      "path": "../AddressBook.Data.EF/AddressBook.Data.EF.csproj",
-      "msbuildProject": "../AddressBook.Data.EF/AddressBook.Data.EF.csproj"
-    },
     "AddressBook.Models/1.0.0": {
       "type": "project",
       "path": "../AddressBook.Models/AddressBook.Models.csproj",
@@ -6732,7 +6713,6 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
       "AddressBook.Contracts >= 1.0.0",
-      "AddressBook.Data.EF >= 1.0.0",
       "AddressBook.Services >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.1",
@@ -6778,9 +6758,6 @@
           "projectReferences": {
             "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Contracts\\AddressBook.Contracts.csproj": {
               "projectPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Contracts\\AddressBook.Contracts.csproj"
-            },
-            "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Data.EF\\AddressBook.Data.EF.csproj": {
-              "projectPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Data.EF\\AddressBook.Data.EF.csproj"
             },
             "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Services\\AddressBook.Services.csproj": {
               "projectPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Services\\AddressBook.Services.csproj"

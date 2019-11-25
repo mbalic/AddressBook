@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using AddressBook.Models;
 using Newtonsoft.Json;
 
-namespace AddressBook.Data.EF
+namespace AddressBook.Services
 {
     public class Seed
     {

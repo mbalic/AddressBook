@@ -4,8 +4,9 @@ using AddressBook.Contracts.DTOs;
 using AddressBook.Contracts.Services;
 using AddressBook.Contracts.Shared;
 using AddressBook.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace AddressBook.API.Services
+namespace AddressBook.Services
 {
     public class ContactService : ServiceBase, IContactService
     {
@@ -52,7 +53,7 @@ namespace AddressBook.API.Services
                 })
                 .OrderBy(c => c.Name);
 
-            return await PagedList<ContactListData>.CreateAsync(contactsListData, model.PageNumber, model.PageSize);
+            return await contactsListData.CreateAsync(model.PageNumber, model.PageSize);
         }
 
         public async Task<ServiceResult> InsertContactAsync(ContactEditData model)

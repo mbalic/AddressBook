@@ -57,3 +57,9 @@ C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.
 C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Sinks.Console.dll
 C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Sinks.Debug.dll
 C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\Serilog.Sinks.File.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\AddressBook.Contracts.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\AddressBook.Models.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\AddressBook.Services.dll
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\AddressBook.Contracts.pdb
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\AddressBook.Services.pdb
+C:\dev\_private\AddressBook\src\AddressBook.API\bin\Debug\netcoreapp3.0\AddressBook.Models.pdb

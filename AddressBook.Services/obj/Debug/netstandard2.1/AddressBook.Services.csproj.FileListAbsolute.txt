@@ -1,0 +1,14 @@
+C:\dev\_private\AddressBook\src\AddressBook.Services\bin\Debug\netstandard2.1\Data\ContactSeedData.json
+C:\dev\_private\AddressBook\src\AddressBook.Services\bin\Debug\netstandard2.1\AddressBook.Services.deps.json
+C:\dev\_private\AddressBook\src\AddressBook.Services\bin\Debug\netstandard2.1\AddressBook.Services.dll
+C:\dev\_private\AddressBook\src\AddressBook.Services\bin\Debug\netstandard2.1\AddressBook.Contracts.dll
+C:\dev\_private\AddressBook\src\AddressBook.Services\bin\Debug\netstandard2.1\AddressBook.Models.dll
+C:\dev\_private\AddressBook\src\AddressBook.Services\bin\Debug\netstandard2.1\AddressBook.Contracts.pdb
+C:\dev\_private\AddressBook\src\AddressBook.Services\bin\Debug\netstandard2.1\AddressBook.Models.pdb
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.1\AddressBook.Services.csprojAssemblyReference.cache
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.1\AddressBook.Services.AssemblyInfoInputs.cache
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.1\AddressBook.Services.AssemblyInfo.cs
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.1\AddressBook.Services.csproj.CopyComplete
+C:\dev\_private\AddressBook\src\AddressBook.Services\bin\Debug\netstandard2.1\AddressBook.Services.pdb
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.1\AddressBook.Services.dll
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.1\AddressBook.Services.pdb

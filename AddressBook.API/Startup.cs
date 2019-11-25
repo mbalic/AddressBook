@@ -1,9 +1,8 @@
 using System.Net;
 using AddressBook.API.Extensions;
-using AddressBook.API.Services;
 using AddressBook.API.SignalR;
 using AddressBook.Contracts.Services;
-using AddressBook.Data.EF;
+using AddressBook.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;

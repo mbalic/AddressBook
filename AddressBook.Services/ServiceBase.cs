@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using AddressBook.Contracts.Shared;
 using AddressBook.Models;
 
-namespace AddressBook.API.Services
+namespace AddressBook.Services
 {
     public abstract class ServiceBase
     {

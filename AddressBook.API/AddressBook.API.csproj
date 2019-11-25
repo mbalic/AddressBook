@@ -13,7 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AddressBook.Contracts\AddressBook.Contracts.csproj" />
-    <ProjectReference Include="..\AddressBook.Data.EF\AddressBook.Data.EF.csproj" />
     <ProjectReference Include="..\AddressBook.Services\AddressBook.Services.csproj" />
   </ItemGroup>
 </Project>
