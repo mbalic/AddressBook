@@ -1,0 +1,3 @@
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.0\AddressBook.Services.csprojAssemblyReference.cache
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.0\AddressBook.Services.AssemblyInfoInputs.cache
+C:\dev\_private\AddressBook\src\AddressBook.Services\obj\Debug\netstandard2.0\AddressBook.Services.AssemblyInfo.cs

@@ -1,10 +1,9 @@
-using System.Linq;
 using System.Threading.Tasks;
-using AddressBook.API.DTOs;
 using AddressBook.API.Extensions;
-using AddressBook.API.Helpers;
-using AddressBook.API.Services;
 using AddressBook.API.SignalR;
+using AddressBook.Contracts.DTOs;
+using AddressBook.Contracts.Services;
+using AddressBook.Contracts.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;

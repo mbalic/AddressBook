@@ -1,4 +1,4 @@
-using AddressBook.API.Helpers;
+using AddressBook.Contracts.Shared;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;

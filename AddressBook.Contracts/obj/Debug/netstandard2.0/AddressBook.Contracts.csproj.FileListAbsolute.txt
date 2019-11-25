@@ -1,0 +1,8 @@
+C:\dev\_private\AddressBook\src\AddressBook.Contracts\obj\Debug\netstandard2.0\AddressBook.Contracts.csprojAssemblyReference.cache
+C:\dev\_private\AddressBook\src\AddressBook.Contracts\obj\Debug\netstandard2.0\AddressBook.Contracts.AssemblyInfoInputs.cache
+C:\dev\_private\AddressBook\src\AddressBook.Contracts\obj\Debug\netstandard2.0\AddressBook.Contracts.AssemblyInfo.cs
+C:\dev\_private\AddressBook\src\AddressBook.Contracts\bin\Debug\netstandard2.0\AddressBook.Contracts.deps.json
+C:\dev\_private\AddressBook\src\AddressBook.Contracts\bin\Debug\netstandard2.0\AddressBook.Contracts.dll
+C:\dev\_private\AddressBook\src\AddressBook.Contracts\bin\Debug\netstandard2.0\AddressBook.Contracts.pdb
+C:\dev\_private\AddressBook\src\AddressBook.Contracts\obj\Debug\netstandard2.0\AddressBook.Contracts.dll
+C:\dev\_private\AddressBook\src\AddressBook.Contracts\obj\Debug\netstandard2.0\AddressBook.Contracts.pdb

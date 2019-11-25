@@ -2114,6 +2114,57 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "AddressBook.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/AddressBook.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AddressBook.Contracts.dll": {}
+        }
+      },
+      "AddressBook.Data.EF/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "AddressBook.Models": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "3.0.1",
+          "Newtonsoft.Json": "12.0.3",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "3.0.1"
+        },
+        "compile": {
+          "bin/placeholder/AddressBook.Data.EF.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AddressBook.Data.EF.dll": {}
+        }
+      },
+      "AddressBook.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/AddressBook.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AddressBook.Models.dll": {}
+        }
+      },
+      "AddressBook.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "AddressBook.Contracts": "1.0.0",
+          "AddressBook.Data.EF": "1.0.0",
+          "AddressBook.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AddressBook.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AddressBook.Services.dll": {}
+        }
       }
     }
   },
@@ -6656,10 +6707,33 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "AddressBook.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../AddressBook.Contracts/AddressBook.Contracts.csproj",
+      "msbuildProject": "../AddressBook.Contracts/AddressBook.Contracts.csproj"
+    },
+    "AddressBook.Data.EF/1.0.0": {
+      "type": "project",
+      "path": "../AddressBook.Data.EF/AddressBook.Data.EF.csproj",
+      "msbuildProject": "../AddressBook.Data.EF/AddressBook.Data.EF.csproj"
+    },
+    "AddressBook.Models/1.0.0": {
+      "type": "project",
+      "path": "../AddressBook.Models/AddressBook.Models.csproj",
+      "msbuildProject": "../AddressBook.Models/AddressBook.Models.csproj"
+    },
+    "AddressBook.Services/1.0.0": {
+      "type": "project",
+      "path": "../AddressBook.Services/AddressBook.Services.csproj",
+      "msbuildProject": "../AddressBook.Services/AddressBook.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
+      "AddressBook.Contracts >= 1.0.0",
+      "AddressBook.Data.EF >= 1.0.0",
+      "AddressBook.Services >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.1",
       "Newtonsoft.Json >= 12.0.3",
@@ -6677,11 +6751,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
+      "projectUniqueName": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
       "projectName": "AddressBook.API",
-      "projectPath": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
+      "projectPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\AddressBook.API.csproj",
       "packagesPath": "C:\\Users\\Mario\\.nuget\\packages\\",
-      "outputPath": "c:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\obj\\",
+      "outputPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -6697,12 +6771,21 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://app-nuget.moberg.corp/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Contracts\\AddressBook.Contracts.csproj": {
+              "projectPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Contracts\\AddressBook.Contracts.csproj"
+            },
+            "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Data.EF\\AddressBook.Data.EF.csproj": {
+              "projectPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Data.EF\\AddressBook.Data.EF.csproj"
+            },
+            "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Services\\AddressBook.Services.csproj": {
+              "projectPath": "C:\\dev\\_private\\AddressBook\\src\\AddressBook.Services\\AddressBook.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
