@@ -14,7 +14,7 @@ namespace AddressBook.Services
 
         public void SeedContacts()
         {
-            var contactData = System.IO.File.ReadAllText("Data/ContactSeedData.json");
+            var contactData = System.IO.File.ReadAllText("../AddressBook.Services/Data/ContactSeedData.json");
             var contacts = JsonConvert.DeserializeObject<List<Contact>>(contactData);
 
             this._context.AddRangeAsync(contacts);
